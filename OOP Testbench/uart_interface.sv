@@ -20,17 +20,17 @@ interface uart_interface(input clk);
     logic  enable;
 
     default clocking cb @(posedge clk);
-        input  #0 receive_data;
-        input  #0 rx_empty;
-        input  #0 tx_full;
-        input  #0 tx;
-        output #1step rd_uart;
-        output #1step transmit_data;
-        output #1step wr_uart;
-        output #1step rx;
-        output #1step dvsr;
-        output #1step enable;
-        output #1step reset_n;
+        input  #1step receive_data;
+        input  #1step rx_empty;
+        input  #1step tx_full;
+        input  #1step tx;
+        output #0 rd_uart;
+        output #0 transmit_data;
+        output #0 wr_uart;
+        output #0 rx;
+        output #0 dvsr;
+        output #0 enable;
+        output #0 reset_n;
     endclocking
 
     task loopback_connection();
