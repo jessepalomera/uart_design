@@ -91,11 +91,12 @@ module transmitter #(parameter DATA_LENGTH = 8)(
                 if (baud_timer)
                     if (baud_count == 15)
                     begin
+                        next_state = idle;
                         if(!tx_valid)
-                            next_state = idle;
+                            tx_data_transmit = 0;
                         else
                             tx_data_transmit = 1;
-                            next_state = idle;
+                            
                     end
                     else
                         next_baud_count = baud_count + 1;
